@@ -25,8 +25,8 @@ async function connectdb() {
     }
 }
 connectdb().then(() => {
-    app.get('/agenda', (req, res) => {
-        connection.query('SELECT * FROM agenda', (error, results) => {
+    app.get('/phonebook', (req, res) => {
+        connection.query('SELECT * FROM phonebook', (error, results) => {
           const refr = {
               "refresh": 0,
               "items" : results
@@ -37,6 +37,6 @@ connectdb().then(() => {
       });
       
       app.listen(3000, () => {
-        console.log('Server started, GET request by http://hostname:3000/agenda');
+        console.log('Server started, GET request by http://hostname:3000/phonebook');
       });
 })
